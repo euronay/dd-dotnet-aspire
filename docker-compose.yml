@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest # Use the contrib image
+    container_name: otel-collector
+    ports:
+      - "8126:8126" # Datadog traces receiver port (for .NET app)
+    volumes:
+      - ./otel-collector-config.yml:/tmp/config.yaml:ro
+    command: ["--config=/tmp/config.yaml"]
+    depends_on:
+      - aspire-dashboard
+
+  aspire-dashboard:
+    image: mcr.microsoft.com/dotnet/aspire-dashboard:latest
+    container_name: aspire-dashboard
+    ports:
+      - "18888:18888" # Aspire Dashboard UI port
+      - "4317:18889" # OTLP gRPC port for receiving traces
+    environment:
+      - ASPIRE_DASHBOARD_OTLP_PORT=18889
+      - ASPIRE_DASHBOARD_UI_PORT=18888

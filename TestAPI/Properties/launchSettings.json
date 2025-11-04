@@ -1,0 +1,26 @@
+{
+    "profiles": {
+        "Development": {
+            "commandName": "Project",
+            "dotnetRunMessages": true,
+            "launchBrowser": false,
+            "applicationUrl": "https://localhost:5001;http://localhost:5000",
+            "launchUrl": "health",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "AWS_REGION": "eu-west-1",
+                "DD_TRACE_AGENT_URL": "http://localhost:8126",
+                "DD_TRACE_ENABLED": "true",
+                "DD_APM_ENABLED": "true",
+                "CORECLR_ENABLE_PROFILING": "1",
+                "CORECLR_PROFILER": "{846F5F1C-F9AE-4B07-969E-05C26BC060D8}",
+                "CORECLR_PROFILER_PATH": "bin\\Debug\\net8.0\\datadog\\win-x64\\Datadog.Trace.ClrProfiler.Native.dll",
+                "DD_DOTNET_TRACER_HOME": "bin\\Debug\\net8.0\\datadog",
+                "DD_LOGS_INJECTION": "true",
+                "DD_RUNTIME_METRICS_ENABLED": "true",
+                "DD_SERVICE": "test-api",
+                "DD_ENV": "development"
+            }
+        }
+    }
+}
