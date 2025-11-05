@@ -2,13 +2,13 @@ version: "3.8"
 
 services:
   otel-collector:
-    image: otel/opentelemetry-collector-contrib:latest # Use the contrib image
+    image: otel/opentelemetry-collector-contrib:latest
     container_name: otel-collector
     ports:
       - "8126:8126" # Datadog traces receiver port (for .NET app)
     volumes:
-      - ./otel-collector-config.yml:/tmp/config.yaml:ro
-    command: ["--config=/tmp/config.yaml"]
+      - ./otel-collector-config.yml:/tmp/otel-collector-config.yml:ro
+    command: ["--config=/tmp/otel-collector-config.yml"]
     depends_on:
       - aspire-dashboard
 

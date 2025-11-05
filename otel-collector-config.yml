@@ -1,6 +1,7 @@
 receivers:
+  # Datadog traces receiver
   datadog:
-    endpoint: "0.0.0.0:8126" # Collector listens on this TCP port for Datadog traces
+    endpoint: "0.0.0.0:8126" 
   # Datadog logs receiver
   syslog:
     tcp:
@@ -13,7 +14,8 @@ receivers:
 
 exporters:
   otlp:
-    endpoint: "aspire-dashboard:18889" # Aspire Dashboard OTLP/gRPC endpoint
+    # Aspire Dashboard OTLP/gRPC endpoint
+    endpoint: "aspire-dashboard:18889" 
     tls:
       insecure: true
 
